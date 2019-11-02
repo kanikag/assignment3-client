@@ -1,0 +1,19 @@
+<div [hidden]="!authenticated()">
+  <app-user></app-user>
+  <app-therapy-list></app-therapy-list>
+  <app-rss-feed></app-rss-feed>
+</div>
+
+<div [hidden]="!isPatient()">
+  <br/><br/><br/>
+  <h2>Parkinson Disease exercise videos:</h2><br/>
+  <app-youtube></app-youtube>
+</div>
+
+<div [hidden]="authenticated()">
+  <p>Login using user form :
+    (patient1/pass) or (patient2/pass) for Patient role.
+    (doc/pass) Doctor role.
+    (researcher/pass) for Researcher role.</p>
+</div>
+

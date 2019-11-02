@@ -1,0 +1,31 @@
+<div class="container">
+  <div [hidden]="authenticated()">
+    <div>
+      <span>Researcher's Login  </span>
+      <div class="button" (click)="loginWithSpotify()"><img src="./assets/spotifyloginbutton.png"
+                                                            style="margin-top: 18px; width: 235px;"/></div>
+    </div>
+    <br/><br/><br/>
+    <h2>Login with username and password</h2>
+    <form (submit)="login()" role="form">
+      <div class="form-group">
+        <label for="username">Username:</label> <input [(ngModel)]="credentials.username"
+                                                       class="form-control" id="username" name="username"
+                                                       type="text"/>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label> <input [(ngModel)]="credentials.password"
+                                                       class="form-control" id="password" name="password"
+                                                       type="password"/>
+      </div>
+      <div>
+        <button color="primary" class="btn btn-primary example-full-width" type="submit">Submit</button>
+      </div>
+      <div class="infoText">
+        (patient1/pass) or (patient2/pass) for Patient role.
+        (doc/pass) Doctor role.
+        (researcher/pass) for Researcher role
+      </div>
+    </form>
+  </div>
+</div>

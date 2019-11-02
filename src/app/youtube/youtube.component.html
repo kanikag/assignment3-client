@@ -1,0 +1,27 @@
+<div [hidden]="!isPatient()">
+<mat-card>
+  <mat-card-header>Youtube Videos for Parkinson's Disease</mat-card-header>
+  <mat-card-content>
+    <div>
+      <mat-table class="mat-elevation-z8" [dataSource]="youtube">
+        <ng-container matColumnDef="title">
+          <mat-header-cell *matHeaderCellDef>Title </mat-header-cell>
+          <mat-cell *matCellDef="let youtube"> {{youtube.snippet.title}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="description">
+          <mat-header-cell *matHeaderCellDef>Description </mat-header-cell>
+          <mat-cell *matCellDef="let youtube"> {{youtube.snippet.description}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="video">
+          <mat-header-cell *matHeaderCellDef>Video </mat-header-cell>
+          <mat-cell *matCellDef="let youtube">
+            <iframe [src]='videoURL(youtube.id.videoId)' frameborder="0" allowfullscreen></iframe>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </mat-card-content>
+</mat-card>
+</div>

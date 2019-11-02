@@ -1,0 +1,23 @@
+.button {
+  display: inline-block;
+}
+
+.example-full-width {
+  height: 30px;
+  margin: 5px;
+  padding: 5px;
+  background-color: black;
+  color: white;
+}
+
+.form-group {
+  margin: 10px;
+}
+
+.form-control {
+  margin-left: 10px;
+}
+
+.infoText {
+  font-size: 10px;
+}

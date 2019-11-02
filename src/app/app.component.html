@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>
+    <div (click)="redirect('home')">Assignment 3</div>
+  </h1>
+
+  <h2>Login with social media</h2>
+  <div [hidden]="authenticated()">
+    <div>
+      <span>Doctor's login </span>
+      <div class="button" (click)="socialSignIn('google')"><img src="./assets/googleloginbutton.png"
+                                                    style="margin-top: 18px; width: 235px;"/></div>
+    </div>
+    <div>
+      <span>Patient's login</span>
+      <div class="button"  (click)="socialSignIn('facebook')" mat-button><img src="./assets/facebookloginbutton.png"
+                                                                 style="margin-top: 18px; width: 235px;"/></div>
+    </div>
+  </div>
+  <div [hidden]="!authenticated()">
+    <button (click)="redirect('home')" mat-button>Home</button>
+    <button (click)="logout()" mat-button>Logout</button>
+  </div>
+  <br />
+  <router-outlet></router-outlet>
+</div>

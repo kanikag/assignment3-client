@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-header>Therapy List</mat-card-header>
+  <mat-card-content>
+    <div>
+      <mat-table class="mat-elevation-z8" [dataSource]="therapies">
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+          <mat-cell *matCellDef="let therapy"> {{therapy.therapyId}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="patient">
+          <mat-header-cell *matHeaderCellDef> Patient </mat-header-cell>
+          <mat-cell *matCellDef="let therapy"> {{therapy.patient.username}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="therapy">
+          <mat-header-cell *matHeaderCellDef> Therapy </mat-header-cell>
+          <mat-cell *matCellDef="let therapy"> {{therapy.therapylist.name}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="medicine">
+          <mat-header-cell *matHeaderCellDef> Medicine</mat-header-cell>
+          <mat-cell *matCellDef="let therapy"> {{therapy.therapylist.medicine.name}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="dosage">
+          <mat-header-cell *matHeaderCellDef> Dosage</mat-header-cell>
+          <mat-cell *matCellDef="let therapy"> {{therapy.therapylist.dosage}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="med">
+          <mat-header-cell *matHeaderCellDef> Doctor </mat-header-cell>
+          <mat-cell *matCellDef="let therapy"> {{therapy.med.username}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="data">
+          <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+          <mat-cell *matCellDef="let therapy"> <button mat-button (click)="loadSessions(therapy.patient.username)" *ngIf="isMed()">Show test data</button></mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+      <mat-paginator></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

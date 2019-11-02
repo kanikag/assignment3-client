@@ -1,0 +1,37 @@
+<div *ngIf="isResearcher()">
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+</div>
+<div>
+  <mat-table class="mat-elevation-z8" [dataSource]="sessions">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+      <mat-cell *matCellDef="let session"> {{session.testSessionId}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="dataUrl">
+      <mat-header-cell *matHeaderCellDef> Visualize data </mat-header-cell>
+      <mat-cell *matCellDef="let session"> <button mat-button (click)="setData(session.data, session.notes, session.testSessionId)">{{session.dataUrl}}</button> </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator></mat-paginator>
+</div>
+
+
+<div *ngIf="notes">
+  <p>
+    Notes
+  </p>
+<ul>
+  <li *ngFor="let element of notes">
+    {{element.note}} -  <b>{{element.medUser.username}}</b>
+  </li>
+  <div *ngIf="isResearcher()">
+  <input #addNoteId type="text" /><button (click)="addNote(addNoteId.value); addNoteId.value='';">Add note</button>
+  </div>
+</ul>
+</div>
+
