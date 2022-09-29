@@ -30,7 +30,7 @@
     "@google/maps": "^0.5.5",
     "angular5-social-auth": "^1.0.11",
     "core-js": "^2.5.4",
-    "d3": "^5.7.0",
+    "d3": "^7.6.1",
     "express": "^4.16.4",
     "ngx-embed-video": "^1.0.0",
     "rxjs": "~6.2.0",
